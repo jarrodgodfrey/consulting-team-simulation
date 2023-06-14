@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "team-performance-simulator", "team-simulator\team-performance-simulator.csproj", "{D36C32B9-F51B-4FA2-8FB5-812102DBA31C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D36C32B9-F51B-4FA2-8FB5-812102DBA31C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D36C32B9-F51B-4FA2-8FB5-812102DBA31C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D36C32B9-F51B-4FA2-8FB5-812102DBA31C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D36C32B9-F51B-4FA2-8FB5-812102DBA31C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDB9183E-F425-4F99-AB9B-5938946B75B2}
+	EndGlobalSection
+EndGlobal
