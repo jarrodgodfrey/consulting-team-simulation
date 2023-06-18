@@ -51,7 +51,7 @@ public static class Simulator
 
         //Output our simulations results to a CSV file (Excel)
         Console.WriteLine($"{sw.Elapsed} Writing csv to file system...");                         
-        WriteCsv(@"teamSimResults.csv", _simResultsBag);              
+        WriteCsv($"teamSimResults-{Guid.NewGuid()}.csv", _simResultsBag);              
         Console.WriteLine($"{sw.Elapsed} Writing csv to file system Complete");
     }
 
