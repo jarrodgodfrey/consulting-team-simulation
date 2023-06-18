@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Globalization;
 using System.Xml.Schema;
 using CsvHelper;
@@ -16,6 +17,8 @@ public static class Simulator
     public static async Task SimulateTeamPerformanceAsync()
     {
         _simResultsBag = new ConcurrentBag<TeamSimResult>();
+        var sw = new Stopwatch();
+        sw.Start();
 
         var megaTeam = new Team
         {
@@ -37,17 +40,21 @@ public static class Simulator
             NumberOfProjectManagers = 1,
             NumberOfQaTesters = 0
         };
-
+                                        
         //We use our initial team projections and simulate over N simulations
         var teamProjections = new List<double> { megaTeam.GetWeeklyProjection(), gigaTeam.GetWeeklyProjection(), petaTeam.GetWeeklyProjection() };
        
         //Simulate pool of lineups for each trial
         var trialNumbers = Enumerable.Range(1, NumberOfSims - 1).ToArray();
+        Console.WriteLine($"{sw.Elapsed} Running Simulation...");
         var simTasks = trialNumbers.Select(trial => Task.Run(() => SimulateAllTeamProjections(teamProjections)));
         await Task.WhenAll(simTasks).ConfigureAwait(false);
+        Console.WriteLine($"{sw.Elapsed} Simulation Complete");
 
         //Output our simulations results to a CSV file (Excel)
-        WriteCSV(@"teamSimResults.csv", _simResultsBag);
+        Console.WriteLine($"{sw.Elapsed} Writing csv to file system...");                         
+        WriteCSV(@"teamSimResults.csv", _simResultsBag);              
+        Console.WriteLine($"{sw.Elapsed} Writing csv to file system Complete");
     }
 
     //This function does the actual simulation
@@ -72,7 +79,7 @@ public static class Simulator
         simulationResult.MegaTeamTime = trialSimulatedResults[0];
         simulationResult.GigaTeamTime = trialSimulatedResults[1];
         simulationResult.PetaTeamTime = trialSimulatedResults[2];
-        _simResultsBag.Add(simulationResult);
+        _simResultsBag?.Add(simulationResult);
     }
 
     private static double GetRandomNumber()

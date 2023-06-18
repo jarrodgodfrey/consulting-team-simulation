@@ -5,6 +5,8 @@ class Program
     static async Task Main(string[] args)
     {
         await Simulator.SimulateTeamPerformanceAsync();
+        Environment.Exit(0);
+
     }
 
 }
