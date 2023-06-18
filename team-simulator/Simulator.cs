@@ -1,9 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Globalization;
-using System.Xml.Schema;
 using CsvHelper;
-using Meta.Numerics.Statistics;
 using Meta.Numerics.Statistics.Distributions;
 using team_performance_simulator.Models;
 
@@ -53,7 +51,7 @@ public static class Simulator
 
         //Output our simulations results to a CSV file (Excel)
         Console.WriteLine($"{sw.Elapsed} Writing csv to file system...");                         
-        WriteCSV(@"teamSimResults.csv", _simResultsBag);              
+        WriteCsv(@"teamSimResults.csv", _simResultsBag);              
         Console.WriteLine($"{sw.Elapsed} Writing csv to file system Complete");
     }
 
@@ -90,7 +88,7 @@ public static class Simulator
         return 0.01 + (next * (0.99 - 0.01));
     }
 
-    private static void WriteCSV(string fileName, IEnumerable<TeamSimResult> teamSimResults)
+    private static void WriteCsv(string fileName, IEnumerable<TeamSimResult> teamSimResults)
     {
         using var writer = new StreamWriter(fileName);
         using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);

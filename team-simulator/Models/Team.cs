@@ -21,10 +21,10 @@ internal class Team
     internal double GetWeeklyProjection()
     {
         var random = new Random();
-        var hoursInWorkWeek = 40;
-        var existingProjectManagerFactor = .45;
-        var lackOfProjectManagerFactor = 1.3;
-        var qaTesterFactor = 0.5;
+        const int hoursInWorkWeek = 40;
+        const double existingProjectManagerFactor = .45;
+        const double lackOfProjectManagerFactor = 1.3;
+        const double qaTesterFactor = 0.5;
         var developerPerformance = new List<(double weeklyVelocity, double pointsPerHours)>();
 
         //Get the random weekly velocities for each dev (factor this out)

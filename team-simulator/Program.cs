@@ -4,7 +4,7 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        await Simulator.SimulateTeamPerformanceAsync();
+        await Simulator.SimulateTeamPerformanceAsync().ConfigureAwait(false);
         Environment.Exit(0);
 
     }
