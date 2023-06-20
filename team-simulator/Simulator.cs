@@ -34,7 +34,7 @@ public static class Simulator
 
         var petaTeam = new Team
         {
-            NumberOfDevelopers = 3,
+            NumberOfDevelopers = 2,
             NumberOfProjectManagers = 1,
             NumberOfQaTesters = 0
         };
